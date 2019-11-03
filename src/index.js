@@ -1,22 +1,34 @@
 import readlineSync from 'readline-sync';
 
-export const userName = readlineSync.question('May I have your name? ');
-
-export const randomNum = Math.floor(Math.random() * 100);
-export const yoAnswer = readlineSync.question('Your answer ');
-export const isEven = (answer) => {
-  if (randomNum % 2 === 0 && answer === 'yes') {
-    return console.log(`Correct!\nCongratulations, ${userName}!`);
-  }
-  if (randomNum % 2 !== 0 && answer === 'no') {
-    return console.log(`Correct!\nCongratulations, ${userName}!`);
-  }
-  if (randomNum % 2 === 0 && answer === 'yes') {
-    return console.log('Correct!');
-  }
-  if (randomNum % 2 !== 0 && answer === 'no') {
-    return console.log('Correct!');
-  }
-  const rightAnswer = randomNum % 2 === 0 ? 'yes' : 'no';
-  return console.log(`'${yoAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
+let answer;
+const yourAnswer = () => {
+  answer = readlineSync.question('Your answer ');
 };
+
+const isEven = (userName) => {
+  for (let i = 0; i < 5; i += 1) {
+    const randomNum = Math.floor(Math.random() * 100);
+    console.log(`Question: ${randomNum}`);
+    yourAnswer();
+    const check = (someAnswer) => {
+      if (randomNum % 2 === 0 && someAnswer === 'yes' && i === 4) {
+        return console.log(`Correct!\nCongratulations, ${userName}!`);
+      }
+      if (randomNum % 2 !== 0 && someAnswer === 'no' && i === 4) {
+        return console.log(`Correct!\nCongratulations, ${userName}!`);
+      }
+      if (randomNum % 2 === 0 && someAnswer === 'yes') {
+        return console.log('Correct!');
+      }
+      if (randomNum % 2 !== 0 && someAnswer === 'no') {
+        return console.log('Correct!');
+      }
+      i = 5;
+      const rightAnswer = randomNum % 2 === 0 ? 'yes' : 'no';
+      return console.log(`'${someAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
+    };
+    check(answer);
+  }
+};
+
+export { isEven };
