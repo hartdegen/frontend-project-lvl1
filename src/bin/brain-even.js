@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { calc } from '..';
+import { isEven } from '..';
 
-calc();
+isEven();
