@@ -9,7 +9,7 @@ const askAnswer = () => {
   answer = readlineSync.question('Your answer: ');
 };
 
-const hiThere = (task) => {
+const hiThere = (task = '') => {
   console.log(`Welcome to the Brain Games!\n${task}\n`);
   askName();
   console.log(`Hi there, ${userName}!`);
