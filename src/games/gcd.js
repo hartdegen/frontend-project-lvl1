@@ -18,18 +18,19 @@ export default () => {
   for (let i = 0; i < 3; i += 1) {
     const randomNum1 = Math.floor(Math.random() * 100);
     const randomNum2 = Math.floor(Math.random() * 100);
+    const rightAnswer = gcdDoing(randomNum1, randomNum2);
 
     console.log(`Question: ${randomNum1} ${randomNum2}`);
     askAnswer();
     const gcd = () => {
-      if (answer === `${gcdDoing(randomNum1, randomNum2)}` && i === 2) {
+      if (answer === `${rightAnswer}` && i === 2) {
         return console.log(`Correct!\nCongratulations, ${userName}!`);
       }
-      if (answer === `${gcdDoing(randomNum1, randomNum2)}`) {
+      if (answer === `${rightAnswer}`) {
         return console.log('Correct!');
       }
       i = 3;
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${gcdDoing(randomNum1, randomNum2)}'. Let's try again, ${userName}!`);
+      return console.log(`'${answer}' is wrong answer ;(. Correct answer was ${rightAnswer}. Let's try again, ${userName}!`);
     };
     gcd();
   }
