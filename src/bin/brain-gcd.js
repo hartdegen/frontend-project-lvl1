@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import gcd from '../games/gcd';
+import gcdLogic from '../games/gcd';
+import { runGame } from '..';
 
-gcd();
+const quest = 'Find the greatest common divisor of given numbers.';
+runGame(quest, gcdLogic);

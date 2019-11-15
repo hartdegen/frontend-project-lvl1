@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import prime from '../games/prime';
+import primeLogic from '../games/prime';
+import { runGame } from '..';
 
-prime();
+const quest = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+runGame(quest, primeLogic);

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import calc from '../games/calc';
+import calcLogic from '../games/calc';
+import { runGame } from '..';
 
-calc();
+const quest = 'What is the result of the expression?';
+runGame(quest, calcLogic);

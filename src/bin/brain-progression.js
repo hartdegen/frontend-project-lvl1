@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import progression from '../games/progression';
+import progressionLogic from '../games/progression';
+import { runGame } from '..';
 
-progression();
+const quest = 'What number is missing in the progression?';
+runGame(quest, progressionLogic);

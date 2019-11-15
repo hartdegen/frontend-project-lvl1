@@ -1,37 +1,16 @@
-import {
-  askAnswer, hiThere, answer, userName,
-} from '..';
-
-
-const gcdDoing = (a, b) => {
-  let x = a;
-  while (x > 0) {
-    if (a % x === 0 && b % x === 0) return x;
-    x -= 1;
+const greatestCommonDivisor = (num1, num2) => {
+  let possibleDiv = num1;
+  while (possibleDiv > 0) {
+    if (num1 % possibleDiv === 0 && num2 % possibleDiv === 0) return possibleDiv;
+    possibleDiv -= 1;
   }
   return 1;
 };
 
-
 export default () => {
-  hiThere('Find the greatest common divisor of given numbers.');
-  for (let i = 0; i < 3; i += 1) {
-    const randomNum1 = Math.floor(Math.random() * 100);
-    const randomNum2 = Math.floor(Math.random() * 100);
-    const rightAnswer = gcdDoing(randomNum1, randomNum2);
-
-    console.log(`Question: ${randomNum1} ${randomNum2}`);
-    askAnswer();
-    const gcd = () => {
-      if (answer === `${rightAnswer}` && i === 2) {
-        return console.log(`Correct!\nCongratulations, ${userName}!`);
-      }
-      if (answer === `${rightAnswer}`) {
-        return console.log('Correct!');
-      }
-      i = 3;
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was ${rightAnswer}. Let's try again, ${userName}!`);
-    };
-    gcd();
-  }
+  const randomNum1 = Math.floor(Math.random() * 100);
+  const randomNum2 = Math.floor(Math.random() * 100);
+  console.log(`Question: ${randomNum1} ${randomNum2}`);
+  const rightAnswer = String(greatestCommonDivisor(randomNum1, randomNum2));
+  return rightAnswer;
 };
