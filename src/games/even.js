@@ -1,6 +1,13 @@
+import randomNum from './randomNum';
+import { cons } from '..';
+
+const isEven = (num) => num % 2 === 0 ? 'yes' : 'no';
+
 export default () => {
-  const randomNum = Math.floor(Math.random() * 100);
-  console.log(`Question: ${randomNum}`);
-  const rightAnswer = randomNum % 2 === 0 ? 'yes' : 'no';
-  return rightAnswer;
+  const someNum = randomNum();
+  const quest = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const question = `Question: ${someNum}`;
+  const rightAnswer = isEven(someNum);
+  const requiredData = cons(quest, cons(question, rightAnswer));
+  return requiredData;
 };

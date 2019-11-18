@@ -1,9 +1,15 @@
+import randomNum from './randomNum';
+import { cons } from '..';
+
 export default () => {
-  const randomNum1 = Math.floor(Math.random() * 100);
-  const randomNum2 = Math.floor(Math.random() * 100);
+  const randomNum1 = randomNum();
+  const randomNum2 = randomNum();
   const signs = ['+', '-', '*'];
   const randomSign = signs[Math.floor(Math.random() * signs.length)];
-  console.log(`Question: ${randomNum1} ${randomSign} ${randomNum2}`);
-  const rightAnswer = String(eval(`${randomNum1}${randomSign}${randomNum2}`));
-  return rightAnswer;
+  const quest = 'What is the result of the expression?';
+  const actionBetweenNum1Num2 = `${randomNum1} ${randomSign} ${randomNum2}`;
+  const question = `Question: ${actionBetweenNum1Num2}`;
+  const rightAnswer = String(eval(`${actionBetweenNum1Num2}`));
+  const requiredData = cons(quest, cons(question, rightAnswer));
+  return requiredData;
 };

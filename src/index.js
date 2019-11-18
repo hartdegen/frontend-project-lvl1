@@ -1,13 +1,17 @@
 import readlineSync from 'readline-sync';
 
+const cons = (a, b) => (message) => {
+  if (message === 'car') return a;
+  if (message === 'cdr') return b;
+};
+
+const car = (pair) => pair('car');
+const cdr = (pair) => pair('cdr');
+
 let userName;
 let yourAnswer;
-const askName = () => {
-  userName = readlineSync.question('May I have your name? ');
-};
-const askAnswer = () => {
-  yourAnswer = readlineSync.question('Your answer: ');
-};
+const askName = () => userName = readlineSync.question('May I have your name? ');
+const askAnswer = () => yourAnswer = readlineSync.question('Your answer: ');
 
 const hiThere = (task = '') => {
   console.log(`Welcome to the Brain Games!\n${task}\n`);
@@ -15,26 +19,30 @@ const hiThere = (task = '') => {
   console.log(`Hi there, ${userName}!`);
 };
 
-const runGame = (quest, gameLogic) => {
+const runGame = (gameLogic) => {
+  const quest = car(gameLogic());
   hiThere(quest);
   for (let i = 0; i < 3; i += 1) {
     // eslint-disable-next-line no-loop-func
     const start = () => {
-      const correctAnswer = gameLogic();
-      console.log(correctAnswer);
+      const logic = gameLogic();
+      const question = car(cdr(logic));
+      const rightAnswer = cdr(cdr(logic));
+
+      console.log(question);
       askAnswer();
-      if (yourAnswer === correctAnswer && i === 2) {
+      if (yourAnswer === rightAnswer && i === 2) {
         return console.log(`Correct!\nCongratulations, ${userName}!`);
       }
-      if (yourAnswer === correctAnswer) {
+      if (yourAnswer === rightAnswer) {
         return console.log('Correct!');
       }
       i = 3;
-      return console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
+      return console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
     };
     start();
   }
 };
 
 
-export { hiThere, runGame };
+export { hiThere, runGame, cons };

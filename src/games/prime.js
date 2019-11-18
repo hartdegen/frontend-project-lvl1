@@ -1,3 +1,6 @@
+import randomNum from './randomNum';
+import { cons } from '..';
+
 const isPrime = (num) => {
   if (num < 2) return 'yes';
   for (let i = 2; i < num / 2; i += 1) {
@@ -7,8 +10,10 @@ const isPrime = (num) => {
 };
 
 export default () => {
-  const randomNum = Math.floor(Math.random() * 100);
-  console.log(`Question: ${randomNum}`);
-  const rightAnswer = isPrime(randomNum);
-  return rightAnswer;
+  const someNum = randomNum();
+  const quest = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const question = `Question: ${someNum}`;
+  const rightAnswer = isPrime(someNum);
+  const requiredData = cons(quest, cons(question, rightAnswer));
+  return requiredData;
 };

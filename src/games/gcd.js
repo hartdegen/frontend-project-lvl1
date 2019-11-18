@@ -1,3 +1,6 @@
+import randomNum from './randomNum';
+import { cons } from '..';
+
 const greatestCommonDivisor = (num1, num2) => {
   let possibleDiv = num1;
   while (possibleDiv > 0) {
@@ -8,9 +11,11 @@ const greatestCommonDivisor = (num1, num2) => {
 };
 
 export default () => {
-  const randomNum1 = Math.floor(Math.random() * 100);
-  const randomNum2 = Math.floor(Math.random() * 100);
-  console.log(`Question: ${randomNum1} ${randomNum2}`);
+  const randomNum1 = randomNum();
+  const randomNum2 = randomNum();
+  const quest = 'Find the greatest common divisor of given numbers.';
+  const question = `Question: ${randomNum1} ${randomNum2}`;
   const rightAnswer = String(greatestCommonDivisor(randomNum1, randomNum2));
-  return rightAnswer;
+  const requiredData = cons(quest, cons(question, rightAnswer));
+  return requiredData;
 };
