@@ -1,18 +1,22 @@
 import randomNum from './randomNum';
 
 const сalculataArithmeticProgression = (num1, num2) => {
-  const tenNumbers = [];
-  for (let x = num1, c = 0; c < 10; c += 1, x += num2) {
-    tenNumbers.push(x);
+  const requiredenNumbers = [];
+  const arrayLength = 10;
+  const stepOfShift = num2;
+  let numForArray = num1;
+  for (let length = 0; length < arrayLength; length += 1, numForArray += stepOfShift) {
+    requiredenNumbers.push(numForArray);
   }
-  return tenNumbers;
+  return requiredenNumbers;
 };
 
 export default () => {
   const randomNum1 = randomNum(1, 10);
   const randomNum2 = randomNum(1, 10);
   const requiredTenNumbers = сalculataArithmeticProgression(randomNum1, randomNum2);
-  const rightAnswer = requiredTenNumbers[randomNum(0, requiredTenNumbers.length)];
+  const randomArrayIndex = randomNum(0, requiredTenNumbers.length);
+  const rightAnswer = requiredTenNumbers[randomArrayIndex];
   const hiddingSomeNumFromTenNumbers = requiredTenNumbers.map((x) => (x === rightAnswer ? '..' : x));
   const quest = 'What number is missing in the progression?';
   const question = hiddingSomeNumFromTenNumbers.join(' ');
