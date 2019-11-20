@@ -1,13 +1,12 @@
 import randomNum from './randomNum';
-import { cons } from '..';
 
-const isEven = (num) => num % 2 === 0 ? 'yes' : 'no';
+const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
 export default () => {
-  const someNum = randomNum();
+  const someNum = randomNum(0, 10);
   const quest = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const question = `Question: ${someNum}`;
+  const question = someNum;
   const rightAnswer = isEven(someNum);
-  const requiredData = cons(quest, cons(question, rightAnswer));
+  const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };

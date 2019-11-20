@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import calcLogic from '../games/calc';
-import { runGame } from '..';
+import { runCalc } from '..';
 
-runGame(calcLogic);
+runCalc();

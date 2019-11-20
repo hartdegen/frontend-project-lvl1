@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import gcdLogic from '../games/gcd';
-import { runGame } from '..';
+import { runGcd } from '..';
 
-runGame(gcdLogic);
+runGcd();

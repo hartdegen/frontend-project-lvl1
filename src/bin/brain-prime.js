@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import primeLogic from '../games/prime';
-import { runGame } from '..';
+import { runPrime } from '..';
 
-runGame(primeLogic);
+runPrime();

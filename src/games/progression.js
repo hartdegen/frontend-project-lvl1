@@ -1,7 +1,6 @@
-import randomNumFrom0to99 from './randomNum';
-import { cons } from '..';
+import randomNum from './randomNum';
 
-const сalculatingOfArithmeticProgression = (num1, num2) => {
+const сalculataArithmeticProgression = (num1, num2) => {
   const tenNumbers = [];
   for (let x = num1, c = 0; c < 10; c += 1, x += num2) {
     tenNumbers.push(x);
@@ -10,13 +9,14 @@ const сalculatingOfArithmeticProgression = (num1, num2) => {
 };
 
 export default () => {
-  const randomNum1 = randomNumFrom0to99() + 1;
-  const randomNum2 = randomNumFrom0to99() + 1;
-  const requiredTenNumbers = сalculatingOfArithmeticProgression(randomNum1, randomNum2);
-  const rightAnswer = requiredTenNumbers[Math.floor(Math.random() * requiredTenNumbers.length)];
+  const randomNum1 = randomNum(1, 10);
+  const randomNum2 = randomNum(1, 10);
+  const requiredTenNumbers = сalculataArithmeticProgression(randomNum1, randomNum2);
+  const rightAnswer = requiredTenNumbers[randomNum(0, requiredTenNumbers.length)];
   const hiddingSomeNumFromTenNumbers = requiredTenNumbers.map((x) => (x === rightAnswer ? '..' : x));
   const quest = 'What number is missing in the progression?';
-  const question = `Question: ${hiddingSomeNumFromTenNumbers.join(' ')}`;
-  const requiredData = cons(quest, cons(question, String(rightAnswer)));
+  const question = hiddingSomeNumFromTenNumbers.join(' ');
+  const requiredData = [quest, question, String(rightAnswer)];
+  console.log(rightAnswer);
   return requiredData;
 };

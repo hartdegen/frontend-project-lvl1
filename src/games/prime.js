@@ -1,5 +1,4 @@
 import randomNum from './randomNum';
-import { cons } from '..';
 
 const isPrime = (num) => {
   if (num < 2) return 'yes';
@@ -10,10 +9,10 @@ const isPrime = (num) => {
 };
 
 export default () => {
-  const someNum = randomNum();
+  const someNum = randomNum(0, 10);
   const quest = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const question = `Question: ${someNum}`;
+  const question = someNum;
   const rightAnswer = isPrime(someNum);
-  const requiredData = cons(quest, cons(question, rightAnswer));
+  const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };
