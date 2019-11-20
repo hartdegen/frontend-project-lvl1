@@ -17,6 +17,5 @@ export default () => {
   const quest = 'What number is missing in the progression?';
   const question = hiddingSomeNumFromTenNumbers.join(' ');
   const requiredData = [quest, question, String(rightAnswer)];
-  console.log(rightAnswer);
   return requiredData;
 };
