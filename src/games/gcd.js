@@ -14,12 +14,12 @@ const gameLogic = () => {
   const number1 = randomNum(0, 10);
   const number2 = randomNum(0, 10);
 
-  const quest = 'Find the greatest common divisor of given numbers.';
-  const question = `${number1} ${number2}`;
+  const questDescription = 'Find the greatest common divisor of given numbers.';
+  const questionToUser = `${number1} ${number2}`;
 
   const rightAnswer = String(findGreatestCommonDivisor(number1, number2));
 
-  const requiredData = [quest, question, rightAnswer];
+  const requiredData = [questDescription, questionToUser, rightAnswer];
   return requiredData;
 };
 

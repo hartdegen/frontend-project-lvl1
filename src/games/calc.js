@@ -8,8 +8,8 @@ const gameLogic = () => {
   const actionsBetweenNumbers = ['+', '-', '*'];
   const randomAction = actionsBetweenNumbers[randomNum(0, actionsBetweenNumbers.length - 1)];
 
-  const quest = 'What is the result of the expression?';
-  const question = `${number1} ${randomAction} ${number2}`;
+  const questDescription = 'What is the result of the expression?';
+  const questionToUser = `${number1} ${randomAction} ${number2}`;
 
   let rightAnswer;
   switch (randomAction) {
@@ -26,7 +26,7 @@ const gameLogic = () => {
       break;
   }
 
-  const requiredData = [quest, question, rightAnswer];
+  const requiredData = [questDescription, questionToUser, rightAnswer];
   return requiredData;
 };
 

@@ -6,12 +6,12 @@ const isEven = (num) => num % 2 === 0;
 const gameLogic = () => {
   const number = randomNum(0, 10);
 
-  const quest = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const question = number;
+  const questDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const questionToUser = number;
 
   const rightAnswer = isEven(number) ? 'yes' : 'no';
 
-  const requiredData = [quest, question, rightAnswer];
+  const requiredData = [questionToUser, questDescription, rightAnswer];
   return requiredData;
 };
 

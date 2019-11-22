@@ -22,10 +22,10 @@ const gameLogic = () => {
   const rightAnswer = String(requiredNumbers[randomArrayIndex]);
   const hiddingRandomNumberFromNumbers = requiredNumbers.map((x) => (x === Number(rightAnswer) ? '..' : x));
 
-  const quest = 'What number is missing in the progression?';
-  const question = hiddingRandomNumberFromNumbers.join(' ');
+  const questDescription = 'What number is missing in the progression?';
+  const questionToUser = hiddingRandomNumberFromNumbers.join(' ');
 
-  const requiredData = [quest, question, rightAnswer];
+  const requiredData = [questDescription, questionToUser, rightAnswer];
   return requiredData;
 };
 

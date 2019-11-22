@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 
 export default (gameLogic) => {
-  const quest = gameLogic()[0];
-  console.log(`Welcome to the Brain Games!\n${quest}\n`);
+  const questDescription = gameLogic()[0];
+  console.log(`Welcome to the Brain Games!\n${questDescription}\n`);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi there, ${userName}!\n`);
 
@@ -10,10 +10,10 @@ export default (gameLogic) => {
   for (let countRounds = 0; countRounds < maxRounds; countRounds += 1) {
     const start = () => {
       const logicData = gameLogic();
-      const question = logicData[1];
+      const questionToUser = logicData[1];
       const rightAnswer = logicData[2];
 
-      console.log(`Question: ${question}`);
+      console.log(`Question: ${questionToUser}`);
       const yourAnswer = readlineSync.question('Your answer: ');
 
       let messageToUser = '';
