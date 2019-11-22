@@ -1,18 +1,23 @@
 import randomNum from './randomNum';
+import gameEngine from '..';
 
 const isPrime = (num) => {
-  if (num < 2) return 'yes';
+  if (num < 2) return true;
   for (let i = 2; i < num / 2; i += 1) {
-    if (num % i === 0) return 'no';
+    if (num % i === 0) return false;
   }
-  return 'yes';
+  return true;
 };
 
-export default () => {
-  const someNum = randomNum(0, 10);
+const gameLogic = () => {
+  const numberForCheck = randomNum(0, 10);
   const quest = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const question = someNum;
-  const rightAnswer = isPrime(someNum);
+  const question = numberForCheck;
+  const rightAnswer = isPrime(numberForCheck) ? 'yes' : 'no';
   const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };
+
+const gameExecution = () => gameEngine(gameLogic);
+
+export default gameExecution;

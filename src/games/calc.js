@@ -1,16 +1,34 @@
 import randomNum from './randomNum';
+import gameEngine from '..';
 
-export default () => {
+const gameLogic = () => {
   const num1 = randomNum(0, 10);
   const num2 = randomNum(0, 10);
-  const actionBetweenNums = [`${num1} + ${num2}`, `${num1} - ${num2}`, `${num1} * ${num2}`];
-  const randomAction = actionBetweenNums[randomNum(0, actionBetweenNums.length - 1)];
+  const actionsBetweenNums = ['+', '-', '*'];
+  const randomAction = actionsBetweenNums[randomNum(0, actionsBetweenNums.length - 1)];
   const quest = 'What is the result of the expression?';
-  const question = randomAction;
+  const question = `${num1} ${randomAction} ${num2}`;
   let rightAnswer;
-  if (randomAction === actionBetweenNums[0]) rightAnswer = num1 + num2;
-  if (randomAction === actionBetweenNums[1]) rightAnswer = num1 - num2;
-  if (randomAction === actionBetweenNums[2]) rightAnswer = num1 * num2;
-  const requiredData = [quest, question, String(rightAnswer)];
+  switch (randomAction) {
+    case actionsBetweenNums[0]:
+      rightAnswer = `${num1 + num2}`;
+      break;
+
+    case actionsBetweenNums[1]:
+      rightAnswer = `${num1 - num2}`;
+      break;
+
+    case actionsBetweenNums[2]:
+      rightAnswer = `${num1 * num2}`;
+      break;
+
+    default:
+      break;
+  }
+  const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };
+
+const gameExecution = () => gameEngine(gameLogic);
+
+export default gameExecution;

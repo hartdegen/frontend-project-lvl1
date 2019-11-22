@@ -1,4 +1,5 @@
 import randomNum from './randomNum';
+import gameEngine from '..';
 
 const сalculataArithmeticProgression = (num1, num2) => {
   const requiredenNumbers = [];
@@ -11,7 +12,7 @@ const сalculataArithmeticProgression = (num1, num2) => {
   return requiredenNumbers;
 };
 
-export default () => {
+const gameLogic = () => {
   const randomNum1 = randomNum(1, 10);
   const randomNum2 = randomNum(1, 10);
   const requiredTenNumbers = сalculataArithmeticProgression(randomNum1, randomNum2);
@@ -23,3 +24,7 @@ export default () => {
   const requiredData = [quest, question, String(rightAnswer)];
   return requiredData;
 };
+
+const gameExecution = () => gameEngine(gameLogic);
+
+export default gameExecution;

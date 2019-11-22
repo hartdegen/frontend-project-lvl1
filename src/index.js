@@ -1,15 +1,6 @@
 import readlineSync from 'readline-sync';
-import calc from './games/calc';
-import even from './games/even';
-import gcd from './games/gcd';
-import prime from './games/prime';
-import progression from './games/progression';
 
-// если концепцию пар запрещено использовать отдельно от библиотеки
-// то лучше воспользуюсь массивами
-// надеюсь, это легитимно в рамках проекта
-
-const runGame = (gameLogic) => {
+export default (gameLogic) => {
   const quest = gameLogic()[0];
   console.log(`Welcome to the Brain Games!\n${quest}\n`);
   const userName = readlineSync.question('May I have your name? ');
@@ -41,9 +32,3 @@ const runGame = (gameLogic) => {
     start();
   }
 };
-
-export const runCalc = () => runGame(calc);
-export const runEven = () => runGame(even);
-export const runGcd = () => runGame(gcd);
-export const runPrime = () => runGame(prime);
-export const runProgression = () => runGame(progression);

@@ -1,4 +1,5 @@
 import randomNum from './randomNum';
+import gameEngine from '..';
 
 const findGreatestCommonDivisor = (num1, num2) => {
   let possibleDiv = num1;
@@ -9,7 +10,7 @@ const findGreatestCommonDivisor = (num1, num2) => {
   return 1;
 };
 
-export default () => {
+const gameLogic = () => {
   const randomNum1 = randomNum(0, 10);
   const randomNum2 = randomNum(0, 10);
   const quest = 'Find the greatest common divisor of given numbers.';
@@ -18,3 +19,7 @@ export default () => {
   const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };
+
+const gameExecution = () => gameEngine(gameLogic);
+
+export default gameExecution;
