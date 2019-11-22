@@ -1,27 +1,31 @@
-import randomNum from './randomNum';
+import randomNumFromTo from './randomNum';
 import gameEngine from '..';
 
-const сalculataArithmeticProgression = (num1, num2) => {
-  const requiredenNumbers = [];
-  const arrayLength = 10;
-  const stepOfShift = num2;
-  let numForArray = num1;
-  for (let length = 0; length < arrayLength; length += 1, numForArray += stepOfShift) {
-    requiredenNumbers.push(numForArray);
+const сalculateArithmeticProgression = (num, rangeOfShift, requiredArrayLength) => {
+  const numbersInArray = [];
+
+  let numberForArray = num;
+  for (let length = 0; length < requiredArrayLength; length += 1, numberForArray += rangeOfShift) {
+    numbersInArray.push(numberForArray);
   }
-  return requiredenNumbers;
+  return numbersInArray;
 };
 
 const gameLogic = () => {
-  const randomNum1 = randomNum(1, 10);
-  const randomNum2 = randomNum(1, 10);
-  const requiredTenNumbers = сalculataArithmeticProgression(randomNum1, randomNum2);
-  const randomArrayIndex = randomNum(0, requiredTenNumbers.length);
-  const rightAnswer = requiredTenNumbers[randomArrayIndex];
-  const hiddingSomeNumFromTenNumbers = requiredTenNumbers.map((x) => (x === rightAnswer ? '..' : x));
+  const number = randomNumFromTo(1, 10);
+  const shift = randomNumFromTo(1, 10);
+  const arrayLength = 10;
+
+  const requiredNumbers = сalculateArithmeticProgression(number, shift, arrayLength);
+  const randomArrayIndex = randomNumFromTo(0, requiredNumbers.length - 1);
+
+  const rightAnswer = String(requiredNumbers[randomArrayIndex]);
+  const hiddingRandomNumberFromNumbers = requiredNumbers.map((x) => (x === Number(rightAnswer) ? '..' : x));
+
   const quest = 'What number is missing in the progression?';
-  const question = hiddingSomeNumFromTenNumbers.join(' ');
-  const requiredData = [quest, question, String(rightAnswer)];
+  const question = hiddingRandomNumberFromNumbers.join(' ');
+
+  const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };
 

@@ -2,20 +2,23 @@ import randomNum from './randomNum';
 import gameEngine from '..';
 
 const findGreatestCommonDivisor = (num1, num2) => {
-  let possibleDiv = num1;
-  while (possibleDiv > 0) {
-    if (num1 % possibleDiv === 0 && num2 % possibleDiv === 0) return possibleDiv;
-    possibleDiv -= 1;
+  let possibleDivisor = num1;
+  while (possibleDivisor > 0) {
+    if (num1 % possibleDivisor === 0 && num2 % possibleDivisor === 0) return possibleDivisor;
+    possibleDivisor -= 1;
   }
   return 1;
 };
 
 const gameLogic = () => {
-  const randomNum1 = randomNum(0, 10);
-  const randomNum2 = randomNum(0, 10);
+  const number1 = randomNum(0, 10);
+  const number2 = randomNum(0, 10);
+
   const quest = 'Find the greatest common divisor of given numbers.';
-  const question = `${randomNum1} ${randomNum2}`;
-  const rightAnswer = String(findGreatestCommonDivisor(randomNum1, randomNum2));
+  const question = `${number1} ${number2}`;
+
+  const rightAnswer = String(findGreatestCommonDivisor(number1, number2));
+
   const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };

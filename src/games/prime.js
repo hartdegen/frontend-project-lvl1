@@ -10,10 +10,13 @@ const isPrime = (num) => {
 };
 
 const gameLogic = () => {
-  const numberForCheck = randomNum(0, 10);
+  const number = randomNum(0, 10);
+
   const quest = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const question = numberForCheck;
-  const rightAnswer = isPrime(numberForCheck) ? 'yes' : 'no';
+  const question = number;
+
+  const rightAnswer = isPrime(number) ? 'yes' : 'no';
+
   const requiredData = [quest, question, rightAnswer];
   return requiredData;
 };
