@@ -11,7 +11,7 @@ const gameLogic = () => {
 
   const rightAnswer = isEven(number) ? 'yes' : 'no';
 
-  const requiredData = [questionToUser, questDescription, rightAnswer];
+  const requiredData = [questDescription, questionToUser, rightAnswer];
   return requiredData;
 };
 
