@@ -11,7 +11,7 @@ const findGreatestCommonDivisor = (number1, number2) => {
 };
 const questDescription = 'Find the greatest common divisor of given numbers.';
 
-const processGameLogic = () => {
+const unzipGameData = () => {
   const number1 = randomNumber(0, 10);
   const number2 = randomNumber(0, 10);
 
@@ -23,6 +23,6 @@ const processGameLogic = () => {
   return requiredData;
 };
 
-const startGame = () => runGameEngine(processGameLogic);
+const startGame = () => runGameEngine(unzipGameData);
 
 export default startGame;

@@ -4,7 +4,7 @@ import runGameEngine from '..';
 const operations = ['+', '-', '*'];
 const questDescription = 'What is the result of the expression?';
 
-const processGameLogic = () => {
+const unzipGameData = () => {
   const number1 = randomNumber(0, 10);
   const number2 = randomNumber(0, 10);
 
@@ -31,6 +31,6 @@ const processGameLogic = () => {
   return requiredData;
 };
 
-const startGame = () => runGameEngine(processGameLogic);
+const startGame = () => runGameEngine(unzipGameData);
 
 export default startGame;

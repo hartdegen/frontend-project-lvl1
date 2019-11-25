@@ -13,7 +13,7 @@ const сalculateArithmeticProgression = (number, rangeOfShift, requiredArrayLeng
 const questDescription = 'What number is missing in the progression?';
 const arrayLength = 10;
 
-const processGameLogic = () => {
+const unzipGameData = () => {
   const number = randomNumber(1, 10);
   const shift = randomNumber(1, 10);
 
@@ -29,6 +29,6 @@ const processGameLogic = () => {
   return requiredData;
 };
 
-const startGame = () => runGameEngine(processGameLogic);
+const startGame = () => runGameEngine(unzipGameData);
 
 export default startGame;
