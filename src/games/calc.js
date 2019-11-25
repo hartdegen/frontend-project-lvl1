@@ -1,35 +1,36 @@
-import randomNum from './randomNum';
-import gameEngine from '..';
+import randomNumber from './randomNum';
+import runGameEngine from '..';
 
-const gameLogic = () => {
-  const number1 = randomNum(0, 10);
-  const number2 = randomNum(0, 10);
+const operations = ['+', '-', '*'];
+const questDescription = 'What is the result of the expression?';
 
-  const actionsBetweenNumbers = ['+', '-', '*'];
-  const randomAction = actionsBetweenNumbers[randomNum(0, actionsBetweenNumbers.length - 1)];
+const processGameLogic = () => {
+  const number1 = randomNumber(0, 10);
+  const number2 = randomNumber(0, 10);
 
-  const questDescription = 'What is the result of the expression?';
-  const questionToUser = `${number1} ${randomAction} ${number2}`;
+  const operation = operations[randomNumber(0, operations.length - 1)];
+
+  const question = `${number1} ${operation} ${number2}`;
 
   let rightAnswer;
-  switch (randomAction) {
-    case actionsBetweenNumbers[0]:
+  switch (operation) {
+    case '+':
       rightAnswer = `${number1 + number2}`;
       break;
-    case actionsBetweenNumbers[1]:
+    case '-':
       rightAnswer = `${number1 - number2}`;
       break;
-    case actionsBetweenNumbers[2]:
+    case '*':
       rightAnswer = `${number1 * number2}`;
       break;
     default:
       break;
   }
 
-  const requiredData = [questDescription, questionToUser, rightAnswer];
+  const requiredData = [questDescription, question, rightAnswer];
   return requiredData;
 };
 
-const gameExecution = () => gameEngine(gameLogic);
+const startGame = () => runGameEngine(processGameLogic);
 
-export default gameExecution;
+export default startGame;

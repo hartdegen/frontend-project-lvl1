@@ -1,26 +1,26 @@
-import randomNum from './randomNum';
-import gameEngine from '..';
+import randomNumber from './randomNum';
+import runGameEngine from '..';
 
-const isPrime = (num) => {
-  if (num < 2) return true;
-  for (let i = 2; i < num / 2; i += 1) {
-    if (num % i === 0) return false;
+const isPrime = (number) => {
+  if (number < 2) return false;
+  for (let i = 2; i < number / 2; i += 1) {
+    if (number % i === 0) return false;
   }
   return true;
 };
+const questDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const gameLogic = () => {
-  const number = randomNum(0, 10);
+const processGameLogic = () => {
+  const requireвNumber = randomNumber(0, 10);
 
-  const questDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const questionToUser = number;
+  const question = requireвNumber;
 
-  const rightAnswer = isPrime(number) ? 'yes' : 'no';
+  const rightAnswer = isPrime(requireвNumber) ? 'yes' : 'no';
 
-  const requiredData = [questDescription, questionToUser, rightAnswer];
+  const requiredData = [questDescription, question, rightAnswer];
   return requiredData;
 };
 
-const gameExecution = () => gameEngine(gameLogic);
+const startGame = () => runGameEngine(processGameLogic);
 
-export default gameExecution;
+export default startGame;

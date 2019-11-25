@@ -1,34 +1,31 @@
 import readlineSync from 'readline-sync';
 
-export default (gameLogic) => {
-  const questDescription = gameLogic()[0];
-  console.log(`Welcome to the Brain Games!\n${questDescription}\n`);
+export default (processGameLogic) => {
+  const questDescription = processGameLogic()[0];
+  console.log('Welcome to the Brain Games!');
+  console.log(`${questDescription}\n`);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi there, ${userName}!\n`);
 
   const maxRounds = 3;
   for (let countRounds = 0; countRounds < maxRounds; countRounds += 1) {
-    const start = () => {
-      const logicData = gameLogic();
-      const questionToUser = logicData[1];
-      const rightAnswer = logicData[2];
+    const logicData = processGameLogic();
+    const questionToUser = logicData[1];
+    const rightAnswer = logicData[2];
 
-      console.log(`Question: ${questionToUser}`);
-      const yourAnswer = readlineSync.question('Your answer: ');
+    console.log(`Question: ${questionToUser}`);
+    const yourAnswer = readlineSync.question('Your answer: ');
 
-      let messageToUser = '';
-      if (yourAnswer === rightAnswer && countRounds === 2) {
-        messageToUser = `Correct!\n\nCongratulations, ${userName}!`;
-      } else if (yourAnswer === rightAnswer) {
-        messageToUser = 'Correct!\n';
-      } else {
-        countRounds = maxRounds;
-        messageToUser = `'${yourAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!\n`;
-      }
+    let messageToUser = '';
+    if (yourAnswer === rightAnswer && countRounds === 2) {
+      messageToUser = `Correct!\n\nCongratulations, ${userName}!`;
+    } else if (yourAnswer === rightAnswer) {
+      messageToUser = 'Correct!\n';
+    } else {
+      countRounds = maxRounds;
+      messageToUser = `'${yourAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!\n`;
+    }
 
-      return console.log(messageToUser);
-    };
-
-    start();
+    console.log(messageToUser);
   }
 };
