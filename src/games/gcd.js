@@ -19,10 +19,10 @@ const unzipGameData = () => {
 
   const rightAnswer = String(findGreatestCommonDivisor(number1, number2));
 
-  const requiredData = [questDescription, questionToUser, rightAnswer];
+  const requiredData = [questionToUser, rightAnswer];
   return requiredData;
 };
 
-const startGame = () => runGameEngine(unzipGameData);
+const startGame = () => runGameEngine(questDescription, unzipGameData);
 
 export default startGame;

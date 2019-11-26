@@ -27,10 +27,10 @@ const unzipGameData = () => {
       break;
   }
 
-  const requiredData = [questDescription, question, rightAnswer];
+  const requiredData = [question, rightAnswer];
   return requiredData;
 };
 
-const startGame = () => runGameEngine(unzipGameData);
+const startGame = () => runGameEngine(questDescription, unzipGameData);
 
 export default startGame;

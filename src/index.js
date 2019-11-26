@@ -1,7 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export default (processGameLogic) => {
-  const questDescription = processGameLogic()[0];
+export default (questDescription, unzipGameData) => {
   console.log('Welcome to the Brain Games!');
   console.log(`${questDescription}\n`);
   const userName = readlineSync.question('May I have your name? ');
@@ -9,9 +8,9 @@ export default (processGameLogic) => {
 
   const maxRounds = 3;
   for (let countRounds = 0; countRounds < maxRounds; countRounds += 1) {
-    const logicData = processGameLogic();
-    const questionToUser = logicData[1];
-    const rightAnswer = logicData[2];
+    const data = unzipGameData();
+    const questionToUser = data[0];
+    const rightAnswer = data[1];
 
     console.log(`Question: ${questionToUser}`);
     const yourAnswer = readlineSync.question('Your answer: ');
