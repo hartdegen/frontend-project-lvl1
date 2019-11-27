@@ -11,11 +11,9 @@ const isPrime = (number) => {
 const questDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const unzipGameData = () => {
-  const requireвNumber = randomNumber(0, 10);
+  const question = randomNumber(0, 10);
 
-  const question = requireвNumber;
-
-  const rightAnswer = isPrime(requireвNumber) ? 'yes' : 'no';
+  const rightAnswer = isPrime(question) ? 'yes' : 'no';
 
   const requiredData = [question, rightAnswer];
   return requiredData;
