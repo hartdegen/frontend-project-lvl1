@@ -10,7 +10,7 @@ const isPrime = (number) => {
 };
 const questDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const unzipGameData = () => {
+const getQuestionAndAnswer = () => {
   const question = randomNumber(0, 10);
 
   const rightAnswer = isPrime(question) ? 'yes' : 'no';
@@ -19,6 +19,6 @@ const unzipGameData = () => {
   return requiredData;
 };
 
-const startGame = () => runGameEngine(questDescription, unzipGameData);
+const startGame = () => runGameEngine(questDescription, getQuestionAndAnswer);
 
 export default startGame;
