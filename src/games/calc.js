@@ -2,7 +2,7 @@ import randomNumber from './randomNum';
 import runGameEngine from '..';
 
 const operations = ['+', '-', '*'];
-const questDescription = 'What is the result of the expression?';
+const quest = 'What is the result of the expression?';
 
 const getQuestionAndAnswer = () => {
   const number1 = randomNumber(0, 10);
@@ -31,6 +31,6 @@ const getQuestionAndAnswer = () => {
   return requiredData;
 };
 
-const startGame = () => runGameEngine(questDescription, getQuestionAndAnswer);
+const startGame = () => runGameEngine(quest, getQuestionAndAnswer);
 
 export default startGame;

@@ -8,7 +8,7 @@ const isPrime = (number) => {
   }
   return true;
 };
-const questDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const quest = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const getQuestionAndAnswer = () => {
   const question = randomNumber(0, 10);
@@ -19,6 +19,6 @@ const getQuestionAndAnswer = () => {
   return requiredData;
 };
 
-const startGame = () => runGameEngine(questDescription, getQuestionAndAnswer);
+const startGame = () => runGameEngine(quest, getQuestionAndAnswer);
 
 export default startGame;
