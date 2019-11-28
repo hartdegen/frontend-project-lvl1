@@ -1,30 +1,24 @@
 import readlineSync from 'readline-sync';
 
-export default (questDescription, getQuestionAndAnswer) => {
+export default (quest, getQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
-  console.log(`${questDescription}\n`);
+  console.log(`${quest}\n`);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi there, ${userName}!\n`);
 
-  const maxRounds = 3;
-  for (let countRounds = 0; countRounds < maxRounds; countRounds += 1) {
-    const data = getQuestionAndAnswer();
-    const questionToUser = data[0];
-    const rightAnswer = data[1];
+  const maxRoundsCount = 3;
 
+  for (let roundCount = 1; roundCount <= maxRoundsCount; roundCount += 1) {
+    const [questionToUser, rightAnswer] = getQuestionAndAnswer();
     console.log(`Question: ${questionToUser}`);
-    const yourAnswer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    let messageToUser = '';
-    if (yourAnswer === rightAnswer && countRounds === 2) {
-      messageToUser = `Correct!\n\nCongratulations, ${userName}!`;
-    } else if (yourAnswer === rightAnswer) {
-      messageToUser = 'Correct!\n';
+    if (userAnswer === rightAnswer) {
+      console.log('Correct!\n');
     } else {
-      countRounds = maxRounds;
-      messageToUser = `'${yourAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!\n`;
+      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!\n`);
     }
-
-    console.log(messageToUser);
   }
+
+  return console.log(`Congratulations, ${userName}!`);
 };

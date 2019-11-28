@@ -1,14 +1,15 @@
 import randomNumber from './randomNum';
 import runGameEngine from '..';
 
-const operations = ['+', '-', '*'];
 const quest = 'What is the result of the expression?';
+const operations = ['+', '-', '*'];
 
 const getQuestionAndAnswer = () => {
   const number1 = randomNumber(0, 10);
   const number2 = randomNumber(0, 10);
 
-  const operation = operations[randomNumber(0, operations.length - 1)];
+  const randomArrayIndex = randomNumber(0, operations.length - 1);
+  const operation = operations[randomArrayIndex];
 
   const question = `${number1} ${operation} ${number2}`;
 
@@ -27,8 +28,7 @@ const getQuestionAndAnswer = () => {
       break;
   }
 
-  const requiredData = [question, rightAnswer];
-  return requiredData;
+  return [question, rightAnswer];
 };
 
 const startGame = () => runGameEngine(quest, getQuestionAndAnswer);
