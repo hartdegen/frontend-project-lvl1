@@ -13,13 +13,13 @@ const findGreatestCommonDivisor = (number1, number2) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const number1 = randomNumber(0, 10);
-  const number2 = randomNumber(0, 10);
+  const value1 = randomNumber(0, 10);
+  const value2 = randomNumber(0, 10);
 
-  const question = `${number1} ${number2}`;
-  const rightAnswer = String(findGreatestCommonDivisor(number1, number2));
+  const question = `${value1} ${value2}`;
+  const rightAnswer = String(findGreatestCommonDivisor(value1, value2));
 
-  return [question, rightAnswer, maxRoundsCount];
+  return [question, rightAnswer];
 };
 
 const startGame = () => runGameEngine(quest, getQuestionAndAnswer, maxRoundsCount);

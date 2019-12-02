@@ -13,16 +13,16 @@ const сalculateArithmeticProgression = (startNumber, shiftNumber) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const startNumber = randomNumber(1, 10);
-  const shiftNumber = randomNumber(1, 10);
+  const init = randomNumber(1, 10);
+  const step = randomNumber(1, 10);
 
-  const numbers = сalculateArithmeticProgression(startNumber, shiftNumber);
+  const numbers = сalculateArithmeticProgression(init, step);
 
   const rightAnswer = String(numbers[randomNumber(0, numbers.length - 1)]);
   const hiddingRandomNumberFromNumbers = numbers.map((x) => (x === Number(rightAnswer) ? '..' : x));
   const question = hiddingRandomNumberFromNumbers.join(' ');
 
-  return [question, rightAnswer, maxRoundsCount];
+  return [question, rightAnswer];
 };
 
 const startGame = () => runGameEngine(quest, getQuestionAndAnswer, maxRoundsCount);
