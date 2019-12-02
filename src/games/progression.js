@@ -3,11 +3,11 @@ import runGameEngine from '..';
 
 const quest = 'What number is missing in the progression?';
 const maxRoundsCount = 3;
-const сalculateArithmeticProgression = (startNumber, shiftNumber) => {
+const сalculateArithmeticProgression = (startValue, difference) => {
   const numbers = [];
   const numbersLength = 10;
   for (let i = 0; i < numbersLength; i += 1) {
-    numbers.push(startNumber + shiftNumber * i);
+    numbers.push(startValue + difference * i);
   }
   return numbers;
 };
