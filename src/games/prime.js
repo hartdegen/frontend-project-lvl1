@@ -2,6 +2,7 @@ import randomNumber from './randomNum';
 import runGameEngine from '..';
 
 const quest = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const maxRoundsCount = 3;
 const isPrime = (number) => {
   if (number < 2) return false;
   for (let i = 2; i < number / 2; i += 1) {
@@ -17,6 +18,6 @@ const getQuestionAndAnswer = () => {
   return [question, rightAnswer];
 };
 
-const startGame = () => runGameEngine(quest, getQuestionAndAnswer);
+const startGame = () => runGameEngine(quest, getQuestionAndAnswer, maxRoundsCount);
 
 export default startGame;

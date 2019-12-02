@@ -2,6 +2,7 @@ import randomNumber from './randomNum';
 import runGameEngine from '..';
 
 const quest = 'Answer "yes" if the number is even, otherwise answer "no".';
+const maxRoundsCount = 3;
 const isEven = (number) => number % 2 === 0;
 
 const getQuestionAndAnswer = () => {
@@ -11,6 +12,6 @@ const getQuestionAndAnswer = () => {
   return [question, rightAnswer];
 };
 
-const startGame = () => runGameEngine(quest, getQuestionAndAnswer);
+const startGame = () => runGameEngine(quest, getQuestionAndAnswer, maxRoundsCount);
 
 export default startGame;
