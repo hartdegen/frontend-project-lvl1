@@ -19,8 +19,8 @@ const getQuestionAndAnswer = () => {
   const numbers = сalculateArithmeticProgression(init, step);
 
   const rightAnswer = String(numbers[randomNumber(0, numbers.length - 1)]);
-  const hiddingRandomNumberFromNumbers = numbers.map((x) => (x === Number(rightAnswer) ? '..' : x));
-  const question = hiddingRandomNumberFromNumbers.join(' ');
+  const numbersWithOneHiddenNumber = numbers.map((x) => (x === Number(rightAnswer) ? '..' : x));
+  const question = numbersWithOneHiddenNumber.join(' ');
 
   return [question, rightAnswer];
 };
