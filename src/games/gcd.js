@@ -2,7 +2,6 @@ import randomNumber from './randomNum';
 import runGameEngine from '..';
 
 const quest = 'Find the greatest common divisor of given numbers.';
-const maxRoundsCount = 3;
 const findGreatestCommonDivisor = (number1, number2) => {
   let possibleDivisor = number1;
   while (possibleDivisor > 0) {
@@ -22,6 +21,6 @@ const getQuestionAndAnswer = () => {
   return [question, rightAnswer];
 };
 
-const startGame = () => runGameEngine(quest, getQuestionAndAnswer, maxRoundsCount);
+const startGame = () => runGameEngine(quest, getQuestionAndAnswer);
 
 export default startGame;

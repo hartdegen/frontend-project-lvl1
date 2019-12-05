@@ -1,7 +1,7 @@
 {
   "name": "project-hd",
   "version": "1.0.0",
-  "description": "",
+  "description": "Collection of 5 mathematical mini-games",
   "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
@@ -23,7 +23,6 @@
     "type": "git",
     "url": "git+https://github.com/hartdegen/frontend-project-lvl1.git"
   },
-  "description": "Collection of 5 mathematical mini-games",
   "keywords": [
     "brain-games",
     "hexlet"

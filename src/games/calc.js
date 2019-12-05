@@ -2,7 +2,6 @@ import randomNumber from './randomNum';
 import runGameEngine from '..';
 
 const quest = 'What is the result of the expression?';
-const maxRoundsCount = 3;
 const operations = ['+', '-', '*'];
 
 const getQuestionAndAnswer = () => {
@@ -31,6 +30,6 @@ const getQuestionAndAnswer = () => {
   return [question, rightAnswer];
 };
 
-const startGame = () => runGameEngine(quest, getQuestionAndAnswer, maxRoundsCount);
+const startGame = () => runGameEngine(quest, getQuestionAndAnswer);
 
 export default startGame;
