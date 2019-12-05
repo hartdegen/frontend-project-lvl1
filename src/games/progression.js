@@ -16,10 +16,9 @@ const getQuestionAndAnswer = () => {
   const progressionSize = 10;
 
   const progression = сalculateArithmeticProgression(init, step, progressionSize);
+  const rightAnswer = String(progression.splice(randomNumber(0, 9), 1, '..'));
 
-  const rightAnswer = String(progression[randomNumber(0, progression.length - 1)]);
-  const progressionWithOneHiddenNumber = progression.map((i) => (i === Number(rightAnswer) ? '..' : i));
-  const question = progressionWithOneHiddenNumber.join(' ');
+  const question = progression.join(' ');
 
   return [question, rightAnswer];
 };
