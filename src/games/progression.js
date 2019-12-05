@@ -2,11 +2,9 @@ import randomNumber from './randomNum';
 import runGameEngine from '..';
 
 const quest = 'What number is missing in the progression?';
-
-const progressionSize = 10;
-const сalculateArithmeticProgression = (startValue, difference) => {
+const сalculateArithmeticProgression = (startValue, difference, progressionLength) => {
   const progression = [];
-  for (let i = 0; i < progressionSize; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     progression.push(startValue + difference * i);
   }
   return progression;
@@ -15,8 +13,9 @@ const сalculateArithmeticProgression = (startValue, difference) => {
 const getQuestionAndAnswer = () => {
   const init = randomNumber(1, 10);
   const step = randomNumber(1, 10);
+  const progressionSize = 10;
 
-  const progression = сalculateArithmeticProgression(init, step);
+  const progression = сalculateArithmeticProgression(init, step, progressionSize);
 
   const rightAnswer = String(progression[randomNumber(0, progression.length - 1)]);
   const progressionWithOneHiddenNumber = progression.map((i) => (i === Number(rightAnswer) ? '..' : i));
